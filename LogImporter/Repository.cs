@@ -25,13 +25,13 @@ namespace LogImporter
 		            [Date] [date] NULL,
 		            [Time] [varchar](8) NULL,
 		            [Ip] [varchar](15) NULL,
-		            [Method] [varchar](10) NULL,
+		            [Method] [varchar](15) NULL,
 		            [UriStem] [varchar](700) NULL,
 		            [UriQuery] [varchar](700) NULL,
 		            [Port] [int] NULL,
 		            [ClientUsername] [varchar](100) NULL,
 		            [ClientIp] [varchar](15) NULL,
-		            [ClientUserAgent] [varchar](200) NULL,
+		            [ClientUserAgent] [varchar](500) NULL,
 		            [ClientReferer] [varchar](700) NULL,
 		            [Status] [int] NULL,
 		            [Substatus] [int] NULL,
@@ -108,7 +108,7 @@ namespace LogImporter
             }
             catch (Exception e)
             {
-                _logger.Error(e);
+                _logger.Error(e, $"Log {log.Date} {log.Time}: Error {e.Message}");
             }
         }
 
